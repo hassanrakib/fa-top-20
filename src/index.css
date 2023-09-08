@@ -1,3 +1,13 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+body {
+    font-family: 'Ubuntu', sans-serif;
+}
+
+@media screen and (max-width: 639px) {
+    .icons-grid-before-sm-breakpoint {
+        grid-template-columns: repeat(auto-fit, minmax(6rem, 1fr));
+    }
+}
