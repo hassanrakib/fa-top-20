@@ -20,7 +20,7 @@ const Icons = ({ parametersToLoadIcons: { category, sortOrder } }) => {
     // set isLoading state to true to show the spinner
     setIsLoading(true);
     fetch(
-      `http://localhost:5000/icons?category=${category}&sortOrder=${sortOrder}`
+      `https://react-font-awesome-server.onrender.com/icons?category=${category}&sortOrder=${sortOrder}`
     )
       .then((res) => res.json())
       .then((icons) => {
