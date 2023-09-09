@@ -38,7 +38,7 @@ const Drawer = () => {
         <label htmlFor="drawer" className="drawer-overlay"></label>
         <ul className="menu p-2 md:w-52 lg:w-72 min-h-full bg-base-200 text-base-content">
           <li>
-            <h1 className="text-2xl font-medium border-b">React Font Awesome</h1>
+            <h1 className="text-2xl font-medium">React Font Awesome</h1>
           </li>
           {/* show categories & let user to choose any category */}
           <Categories
