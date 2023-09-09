@@ -25,7 +25,7 @@ const Drawer = () => {
     // drawer open after medium breakpoint
     <div className="drawer md:drawer-open">
       <input id="drawer" type="checkbox" className="drawer-toggle" />
-      <div className="drawer-content flex flex-col items-center justify-center">
+      <div className="mb-4 drawer-content flex flex-col items-center justify-center">
         {/* navbar for small screen, hidden after medium breakpoint */}
         <Navbar />
         <SelectedCategoryAndSortOrder

@@ -11,7 +11,7 @@ const SelectedCategoryAndSortOrder = ({
   if (!category && !sortOrder) return null;
 
   return (
-    <div className="mt-6 flex gap-x-2">
+    <div className="mt-4 flex gap-x-2">
       {category && (
         <button
           className="btn btn-warning rounded-full capitalize"

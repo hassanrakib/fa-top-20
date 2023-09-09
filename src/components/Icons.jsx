@@ -40,7 +40,7 @@ const Icons = ({ parametersToLoadIcons: { category, sortOrder } }) => {
   }
 
   return (
-    <div className="mt-6 px-4 w-full sm:w-auto grid sm:grid-cols-4 lg:grid-cols-5 gap-5 icons-grid-before-sm-breakpoint">
+    <div className="mt-4 px-4 w-full sm:w-auto grid sm:grid-cols-4 lg:grid-cols-5 gap-5 icons-grid-before-sm-breakpoint">
       {icons.map((icon) => (
         <Icon
           key={icon._id}

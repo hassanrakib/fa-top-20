@@ -27,15 +27,15 @@ const Tabs = ({ iconType, iconName, activeTabId, setActiveTabId }) => {
       {
         id: 3,
         name: "Individual",
-        jsx: `<FontAwesomeIcon icon="fa${convertIconNameToPascalCase(
+        jsx: `<FontAwesomeIcon icon={fa${convertIconNameToPascalCase(
           iconName
-        )}" />`,
+        )}} />`,
       },
     ],
     [iconName, iconType]
   );
   return (
-    <div className="card-body p-0">
+    <div className="mt-3 card-body p-0">
       {/* show tabs */}
       <div className="tabs">
         {tabs.map((tab) => (
