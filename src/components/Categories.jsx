@@ -4,20 +4,25 @@ const categories = [
   { id: 3, name: "brands" },
 ];
 
-const Categories = ({ setSelectedCategory }) => {
+const Categories = ({ setParametersToLoadIconsState }) => {
   return (
-    <>
+    <ul className="mt-8">
+      <li>
+        <h3 className="text-xl font-light">Categories</h3>
+      </li>
       {categories.map((category) => (
         <li key={category.id}>
           <button
             className="capitalize"
-            onClick={() => setSelectedCategory(category.name)}
+            onClick={() =>
+              setParametersToLoadIconsState({ category: category.name })
+            }
           >
             {category.name}
           </button>
         </li>
       ))}
-    </>
+    </ul>
   );
 };
 
