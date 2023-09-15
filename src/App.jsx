@@ -18,12 +18,15 @@ const App = () => {
   // these are tags to filter out icons
   const [tagsToFilterIcons, setTagsToFilterIcons] = React.useState([]);
 
+  // sort order to sort icons alphabetically
+  // sortOrder = 0 for no sorting, 1 for alphabetical
+  const [sortOrder, setSortOrder] = React.useState(0);
+
   // add new tag to the tagsToFilterIcons state
   // or remove the existing tag from the tagsToFilterIcons state
   const addOrRemoveTagToFilterIcons = (newTag, reset) => {
-    
     // if reset true, remove all the tags
-    if(reset) return setTagsToFilterIcons([]);
+    if (reset) return setTagsToFilterIcons([]);
 
     // if the tag already in tagsToFilterIcons state, remove the tag
     if (tagsToFilterIcons.includes(newTag)) {
@@ -60,6 +63,8 @@ const App = () => {
         <TopCategoriesAndSorting
           isTagActive={isTagActive}
           addOrRemoveTagToFilterIcons={addOrRemoveTagToFilterIcons}
+          sortOrder={sortOrder}
+          setSortOrder={setSortOrder}
         />
       </header>
       <main className="px-28 py-7 bg-gray-100 flex gap-x-8">
@@ -68,7 +73,11 @@ const App = () => {
           isTagActive={isTagActive}
           addOrRemoveTagToFilterIcons={addOrRemoveTagToFilterIcons}
         />
-        <ShowIcons tagsToFilterIcons={tagsToFilterIcons} addOrRemoveTagToFilterIcons={addOrRemoveTagToFilterIcons} />
+        <ShowIcons
+          tagsToFilterIcons={tagsToFilterIcons}
+          addOrRemoveTagToFilterIcons={addOrRemoveTagToFilterIcons}
+          sortOrder={sortOrder}
+        />
       </main>
       <Footer />
     </div>

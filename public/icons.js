@@ -1,90 +1,112 @@
 [
     {
-        name: "fa-solid fa-house",
+        name: "house",
+        type: "solid",
         tags: ["classic", "free", "solid", ]
     },
     {
-        name: "fa-brands fa-facebook",
+        name: "facebook",
+        type: "brands",
         tags: ["brands", "free"],
     },
     {
-        name: "fa-regular fa-user",
+        name: "user",
+        type: "regular",
         tags: ["regular", "classic", "free"],
     },
     {
-        name: "fa-solid fa-magnifying-glass",
+        name: "magnifying-glass",
+        type: "solid",
         tags: ["solid", "free", "classic"],
     },
     {
-        name: "fa-regular fa-thumbs-up",
+        name: "thumbs-up",
+        type: "regular",
         tags: ["regular", "free", "classic"]
     },
     {
-        name: "fa-brands fa-linkedin",
+        name: "linkedin",
+        type: "brands",
         tags: ["brands", "free"],
     },
     {
-        name: "fa-regular fa-star",
+        name: "star",
+        type: "regular",
         tags: ["regular", "free", "classic", "shapes" ],
     },
     {
-        name: "fa-solid fa-location-dot",
+        name: "location-dot",
+        type: "solid",
         tags: ["solid", "classic", "free", ],
     },
     {
-        name: "fa-regular fa-circle-xmark",
+        name: "circle-xmark",
+        type: "regular",
         tags: ["regular", "free", "classic"],
     },
     {
-        name: "fa-solid fa-heart",
+        name: "heart",
+        type: "solid",
         tags: ["solid", "free", "shapes", "classic"]
     },
     {
-        name: "fa-solid fa-arrow-right",
+        name: "arrow-right",
+        type: "solid",
         tags: ["solid", "free", "classic", "arrows"]
     },
     {
-        name: "fa-solid fa-arrow-rotate-right",
+        name: "arrow-rotate-right",
+        type: "solid",
         tags: ["solid", "arrows", "free", "classic"],
     },
     {
-        name: "fa-regular fa-circle-down",
+        name: "circle-down",
+        type: "regular",
         tags: ["regular", "free", "classic", "arrows"]
     },
     {
-        name: "fa-regular fa-file",
+        name: "file",
+        type: "regular",
         tags: ["regular", "shapes", "free", "classic"],
     },
     {
-        name: "fa-solid fa-bookmark",
+        name: "bookmark",
+        type: "solid",
         tags: ["solid", "shapes", "free", "classic"],
     },
     {
-        name: "fa-solid fa-angle-up",
+        name: "angle-up",
+        type: "solid",
         tags: ["solid", "arrows", "classic", "free"],
     },
     {
-        name: "fa-regular fa-square",
+        name: "square",
+        type: "regular",
         tags: ["regular", "free", "shapes", "classic"],
     },
     {
-        name: "fa-regular fa-calendar",
+        name: "calendar",
+        type: "regular",
         tags: ["regular", "shapes", "classic", "free"],
     },
     {
-        name: "fa-brands fa-react",
+        name: "react",
+        type: "brands",
         tags: ["brands", "free"],
     },
     {
-        name: "fa-brands fa-java",
+        name: "java",
+        type: "brands",
         tags: ["brands", "free"],
     },
     {
-        name: "fa-brands fa-node",
+        name: "node",
+        type: "brands",
         tags: ["brands", "free"],
     },
     {
-        name: "fa-solid fa-sort-down",
+        name: "sort-down",
+        type: "solid",
         tags: ["solid", "arrows", "free", "classic"],
     },
 ]

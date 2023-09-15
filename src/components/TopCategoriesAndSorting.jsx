@@ -41,6 +41,8 @@ const grids = [
 const TopCategoriesAndSorting = ({
   isTagActive,
   addOrRemoveTagToFilterIcons,
+  sortOrder,
+  setSortOrder
 }) => {
   return (
     <div className="mt-8 max-w-5xl mx-auto flex justify-between items-center">
@@ -85,24 +87,20 @@ const TopCategoriesAndSorting = ({
         ))}
         {/* sorting */}
         <select
-          value={0}
+          value={sortOrder}
+          onChange={(e) => setSortOrder(e.target.value)}
           className="ml-2 px-8 py-3 bg-white border-double border-transparent outline outline-2 outline-gray-300 rounded-lg items-center"
           style={{ borderRightWidth: "18px" }}
         >
-          <option value={0} disabled>
-            Sort By
-          </option>
-          <option value={1}>A To Z</option>
-          <option value={-1}>Z To A</option>
+          <option value={0}>Featured</option>
+          <option value={1}>Alphabetical</option>
         </select>
         <select
           value={0}
           className="ml-3 px-8 py-3 bg-white border-double border-transparent outline outline-2 outline-gray-300 rounded-lg items-center"
           style={{ borderRightWidth: "18px" }}
         >
-          <option value={0} disabled>
-            6.4.2
-          </option>
+          <option value={0}>6.4.2</option>
           <option value={1}>5.5.6</option>
           <option value={-1}>6.0.3</option>
         </select>

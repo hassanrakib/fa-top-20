@@ -2,17 +2,20 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import React from "react";
 import IconsNumberAndFilters from "./IconsNumberAndFilters";
 
-const ShowIcons = ({ tagsToFilterIcons, addOrRemoveTagToFilterIcons }) => {
+const ShowIcons = ({ tagsToFilterIcons, addOrRemoveTagToFilterIcons, sortOrder }) => {
   // holds icons
   const [icons, setIcons] = React.useState([]);
   // know that the icons are loading or not
   const [isLoading, setIsLoading] = React.useState(true);
 
+  // create a string of tags seperated by comma
+  const tagsString = tagsToFilterIcons.join(",");
+
   // load icons and set icons state
   React.useEffect(() => {
     // set isLoading state to true to show the spinner
     setIsLoading(true);
-    fetch(`http://localhost:5000/icons`)
+    fetch(`http://localhost:5000/icons?sortOrder=${sortOrder}&tags=${tagsString}`)
       .then((res) => res.json())
       .then((icons) => {
         console.log(icons);
@@ -22,15 +25,7 @@ const ShowIcons = ({ tagsToFilterIcons, addOrRemoveTagToFilterIcons }) => {
         // set isLoading state to false
         setIsLoading(false);
       });
-  }, []);
-
-  // make icon name show able
-  const preetifyIconName = (iconName) => {
-    // creates an array of words from the iconName
-    const splittedNames = iconName.split(" ");
-    // remove first 3 letters from the last word of iconName
-    return splittedNames[splittedNames.length - 1].substring(3);
-  };
+  }, [sortOrder, tagsString]);
 
   // if icons are loading then show a spinner
   if (isLoading)
@@ -57,12 +52,10 @@ const ShowIcons = ({ tagsToFilterIcons, addOrRemoveTagToFilterIcons }) => {
               <span>
                 <FontAwesomeIcon
                   className="text-4xl text-blue-950"
-                  icon={icon.name}
+                  icon={`fa-${icon.type} fa-${icon.name}`}
                 />
               </span>
-              <span className="text-xs font-light">
-                {preetifyIconName(icon.name)}
-              </span>
+              <span className="text-xs font-light">{icon.name}</span>
             </button>
           </article>
         ))}
