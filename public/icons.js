@@ -1,86 +1,90 @@
 [
     {
-        name: "house",
-        type: "solid",
+        name: "fa-solid fa-house",
+        tags: ["classic", "free", "solid", ]
     },
     {
-        name: "facebook",
-        type: "brands",
+        name: "fa-brands fa-facebook",
+        tags: ["brands", "free"],
     },
     {
-        name: "user",
-        type: "regular",
+        name: "fa-regular fa-user",
+        tags: ["regular", "classic", "free"],
     },
     {
-        name: "magnifying-glass",
-        type: "solid",
+        name: "fa-solid fa-magnifying-glass",
+        tags: ["solid", "free", "classic"],
     },
     {
-        name: "thumbs-up",
-        type: "regular",
+        name: "fa-regular fa-thumbs-up",
+        tags: ["regular", "free", "classic"]
     },
     {
-        name: "linkedin",
-        type: "brands",
+        name: "fa-brands fa-linkedin",
+        tags: ["brands", "free"],
     },
     {
-        name: "star",
-        type: "regular",
+        name: "fa-regular fa-star",
+        tags: ["regular", "free", "classic", "shapes" ],
     },
     {
-        name: "location-dot",
-        type: "solid",
+        name: "fa-solid fa-location-dot",
+        tags: ["solid", "classic", "free", ],
     },
     {
-        name: "circle-xmark",
-        type: "regular",
+        name: "fa-regular fa-circle-xmark",
+        tags: ["regular", "free", "classic"],
     },
     {
-        name: "clipboard",
-        type: "regular",
+        name: "fa-solid fa-heart",
+        tags: ["solid", "free", "shapes", "classic"]
     },
     {
-        name: "rotate-right",
-        type: "solid",
+        name: "fa-solid fa-arrow-right",
+        tags: ["solid", "free", "classic", "arrows"]
     },
     {
-        name: "cart-plus",
-        type: "solid",
+        name: "fa-solid fa-arrow-rotate-right",
+        tags: ["solid", "arrows", "free", "classic"],
     },
     {
-        name: "info",
-        type: "solid",
+        name: "fa-regular fa-circle-down",
+        tags: ["regular", "free", "classic", "arrows"]
     },
     {
-        name: "flag",
-        type: "regular",
+        name: "fa-regular fa-file",
+        tags: ["regular", "shapes", "free", "classic"],
     },
     {
-        name: "moon",
-        type: "solid",
+        name: "fa-solid fa-bookmark",
+        tags: ["solid", "shapes", "free", "classic"],
     },
     {
-        name: "square-twitter",
-        type: "brands",
+        name: "fa-solid fa-angle-up",
+        tags: ["solid", "arrows", "classic", "free"],
     },
     {
-        name: "square-check",
-        type: "regular",
+        name: "fa-regular fa-square",
+        tags: ["regular", "free", "shapes", "classic"],
     },
     {
-        name: "react",
-        type: "brands",
+        name: "fa-regular fa-calendar",
+        tags: ["regular", "shapes", "classic", "free"],
     },
     {
-        name: "java",
-        type: "brands",
+        name: "fa-brands fa-react",
+        tags: ["brands", "free"],
     },
     {
-        name: "node",
-        type: "brands",
+        name: "fa-brands fa-java",
+        tags: ["brands", "free"],
     },
     {
-        name: "wheelchair",
-        type: "solid",
+        name: "fa-brands fa-node",
+        tags: ["brands", "free"],
+    },
+    {
+        name: "fa-solid fa-sort-down",
+        tags: ["solid", "arrows", "free", "classic"],
     },
 ]

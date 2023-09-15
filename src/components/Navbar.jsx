@@ -1,29 +1,70 @@
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+
+const navLinks = [
+  {
+    key: 2,
+    href: "#",
+    text: "Start",
+  },
+  {
+    key: 3,
+    href: "#",
+    icon: <FontAwesomeIcon className="text-gray-800" icon="fa-solid fa-magnifying-glass" />,
+  },
+  {
+    key: 4,
+    href: "#",
+    text: "Icons",
+  },
+  {
+    key: 5,
+    href: "#",
+    text: "Docs",
+  },
+  {
+    key: 6,
+    href: "#",
+    text: "Plans",
+  },
+  {
+    key: 7,
+    href: "#",
+    text: "Support",
+  },
+  {
+    key: 8,
+    href: "#",
+    text: "Podcast",
+  },
+];
+
 const Navbar = () => {
   return (
-    <div className="navbar bg-base-200 md:hidden">
-      <div className="flex-1">
-        <a className="btn btn-ghost normal-case text-2xl font-medium">
-          React Font Awesome
+    <nav className="flex py-4 justify-between items-center">
+      <div className="flex items-center">
+        <a className="py-2.5 px-4" href="/">
+          <FontAwesomeIcon
+            className="text-2xl text-blue-500"
+            icon="fa-solid fa-font-awesome"
+          />
         </a>
+        <ul className="ml-12 flex items-center">
+          {navLinks.map((link) => (
+            <li className="py-2.5 px-4 mr-4" key={link.key}>
+              <a className="text-gray-500 hover:text-blue-500" href={link.href}>
+                {link.text || link.icon}
+              </a>
+            </li>
+          ))}
+        </ul>
       </div>
-      <div className="flex-none">
-        <label htmlFor="drawer" className="btn btn-square btn-ghost">
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            fill="none"
-            viewBox="0 0 24 24"
-            className="inline-block w-8 h-8 stroke-amber-500"
-          >
-            <path
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              strokeWidth="2"
-              d="M4 6h16M4 12h16M4 18h16"
-            ></path>
-          </svg>
-        </label>
-      </div>
-    </div>
+      <a className="py-2.5 px-4" href="#">
+        <FontAwesomeIcon
+          className="text-gray-500 text-2xl"
+          icon="fa-solid fa-right-to-bracket"
+        />
+      </a>
+    </nav>
   );
 };
 
