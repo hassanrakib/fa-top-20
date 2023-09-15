@@ -3,22 +3,22 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 const categories = [
   {
     key: 1,
-    name: "Classic",
+    name: "classic",
     icon: "fa-solid fa-icons",
   },
   {
     key: 2,
-    name: "Sharp",
+    name: "sharp",
     icon: "fa-solid fa-icons",
   },
   {
     key: 3,
-    name: "Brands",
+    name: "brands",
     icon: "fa-solid fa-font-awesome",
   },
   {
     key: 4,
-    name: "Free",
+    name: "free",
     icon: "fa-solid fa-bolt",
   },
 ];
@@ -38,24 +38,41 @@ const grids = [
   },
 ];
 
-const TopCategoriesAndSorting = () => {
+const TopCategoriesAndSorting = ({
+  isTagActive,
+  addOrRemoveTagToFilterIcons,
+}) => {
   return (
     <div className="mt-8 max-w-5xl mx-auto flex justify-between items-center">
-      <div className="flex space-between">
-        {categories.map((category) => (
-          <button
-            key={category.key}
-            className="group flex flex-col items-center pt-6 pb-5 px-10 gap-y-2 border-b-4 border-transparent hover:border-blue-500"
-          >
-            <FontAwesomeIcon
-              className="text-3xl text-blue-950 group-hover:text-blue-500"
-              icon={category.icon}
-            />
-            <span className="text-sm text-gray-700 group-hover:text-blue-500">
-              {category.name}
-            </span>
-          </button>
-        ))}
+      <div className="flex space-between gap-x-3">
+        {categories.map((category) => {
+          // check that this category is active or not
+          const active = isTagActive(category.name);
+          return (
+            <button
+              // add new tag to filter out icons
+              onClick={() => addOrRemoveTagToFilterIcons(category.name)}
+              key={category.key}
+              className={`group flex flex-col items-center pt-6 pb-5 px-10 gap-y-2 border-b-4 hover:border-blue-500${
+                active ? " border-blue-500" : " border-transparent"
+              }`}
+            >
+              <FontAwesomeIcon
+                className={`text-3xl group-hover:text-blue-500${
+                  active ? " text-blue-500" : " text-blue-950"
+                }`}
+                icon={category.icon}
+              />
+              <span
+                className={`capitalize text-sm group-hover:text-blue-500${
+                  active ? " text-blue-500" : " text-gray-700"
+                }`}
+              >
+                {category.name}
+              </span>
+            </button>
+          );
+        })}
       </div>
       <div className="flex space-between">
         {grids.map((grid) => (

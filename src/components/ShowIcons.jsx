@@ -1,12 +1,14 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import React from "react";
+import IconsNumberAndFilters from "./IconsNumberAndFilters";
 
-const ShowIcons = () => {
+const ShowIcons = ({ tagsToFilterIcons, addOrRemoveTagToFilterIcons }) => {
   // holds icons
   const [icons, setIcons] = React.useState([]);
   // know that the icons are loading or not
   const [isLoading, setIsLoading] = React.useState(true);
 
+  // load icons and set icons state
   React.useEffect(() => {
     // set isLoading state to true to show the spinner
     setIsLoading(true);
@@ -22,12 +24,13 @@ const ShowIcons = () => {
       });
   }, []);
 
+  // make icon name show able
   const preetifyIconName = (iconName) => {
     // creates an array of words from the iconName
-    const splittedNames = iconName.split(" ")
+    const splittedNames = iconName.split(" ");
     // remove first 3 letters from the last word of iconName
     return splittedNames[splittedNames.length - 1].substring(3);
-  }
+  };
 
   // if icons are loading then show a spinner
   if (isLoading)
@@ -42,17 +45,24 @@ const ShowIcons = () => {
 
   return (
     <div className="grow flex flex-col gap-y-7">
-      <section className="flex gap-x-3">
-        <h3 className="text-lg tracking-wide font-bold text-blue-950">{icons.length} Icons</h3>
-      </section>
+      <IconsNumberAndFilters
+        totalIcons={icons.length}
+        tagsToFilterIcons={tagsToFilterIcons}
+        addOrRemoveTagToFilterIcons={addOrRemoveTagToFilterIcons}
+      />
       <section className="grid grid-cols-6 gap-3">
         {icons.map((icon) => (
           <article key={icon._id}>
             <button className="w-full h-full rounded-xl px-3 pt-6 pb-4 bg-white hover:bg-yellow-300 flex flex-col justify-center items-center gap-y-6">
               <span>
-                <FontAwesomeIcon className="text-4xl text-blue-950" icon={icon.name} />
+                <FontAwesomeIcon
+                  className="text-4xl text-blue-950"
+                  icon={icon.name}
+                />
               </span>
-              <span className="text-xs font-light">{preetifyIconName(icon.name)}</span>
+              <span className="text-xs font-light">
+                {preetifyIconName(icon.name)}
+              </span>
             </button>
           </article>
         ))}

@@ -5,30 +5,70 @@ import { fab } from "@fortawesome/free-brands-svg-icons";
 import Navbar from "./components/Navbar";
 import Search from "./components/Search";
 import TopCategoriesAndSorting from "./components/TopCategoriesAndSorting";
-import SidebarCategories from "./components/SidebarCategories";
 import React from "react";
 import ShowIcons from "./components/ShowIcons";
 import Footer from "./components/Footer";
+import Sidebar from "./components/Sidebar";
 
-// makes any of the icons in the packages to be referenced
+// makes any of the icons in the font awesome packages to be referenced
 // by icon name as a string in any component of the app
 library.add(fas, far, fab);
 
 const App = () => {
   // these are tags to filter out icons
-  const [tags,setTags] = React.useState([]);
+  const [tagsToFilterIcons, setTagsToFilterIcons] = React.useState([]);
+
+  // add new tag to the tagsToFilterIcons state
+  // or remove the existing tag from the tagsToFilterIcons state
+  const addOrRemoveTagToFilterIcons = (newTag, reset) => {
+    
+    // if reset true, remove all the tags
+    if(reset) return setTagsToFilterIcons([]);
+
+    // if the tag already in tagsToFilterIcons state, remove the tag
+    if (tagsToFilterIcons.includes(newTag)) {
+      const tagsToFilterIconsAfterRemove = tagsToFilterIcons.filter(
+        (existingTag) => {
+          return existingTag !== newTag;
+        }
+      );
+
+      // finally set the state as we have new array of tags after removing the existing tag
+      setTagsToFilterIcons(tagsToFilterIconsAfterRemove);
+    } else {
+      // add new tag to the tagsToFilterIcons state
+      setTagsToFilterIcons((prevTagsToFilterIcons) => [
+        ...prevTagsToFilterIcons,
+        newTag,
+      ]);
+    }
+  };
+
+  // know that a tag is active or not
+  const isTagActive = React.useCallback(
+    (tagName) => {
+      return tagsToFilterIcons.includes(tagName);
+    },
+    [tagsToFilterIcons]
+  );
 
   return (
     <div>
       <header className="px-24">
         <Navbar />
         <Search />
-        <TopCategoriesAndSorting setTags={setTags} />
+        <TopCategoriesAndSorting
+          isTagActive={isTagActive}
+          addOrRemoveTagToFilterIcons={addOrRemoveTagToFilterIcons}
+        />
       </header>
       <main className="px-28 py-7 bg-gray-100 flex gap-x-8">
-          {/* sidebar */}
-          <SidebarCategories setTags={setTags} />
-          <ShowIcons tags={tags} />
+        {/* sidebar */}
+        <Sidebar
+          isTagActive={isTagActive}
+          addOrRemoveTagToFilterIcons={addOrRemoveTagToFilterIcons}
+        />
+        <ShowIcons tagsToFilterIcons={tagsToFilterIcons} addOrRemoveTagToFilterIcons={addOrRemoveTagToFilterIcons} />
       </main>
       <Footer />
     </div>
