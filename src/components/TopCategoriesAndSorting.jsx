@@ -1,4 +1,5 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import TopCategoryBtn from "./TopCategoryBtn";
 
 const categories = [
   {
@@ -42,40 +43,26 @@ const TopCategoriesAndSorting = ({
   isTagActive,
   addOrRemoveTagToFilterIcons,
   sortOrder,
-  setSortOrder
+  setSortOrder,
 }) => {
   return (
-    <div className="mt-8 max-w-5xl mx-auto flex justify-between items-center">
+    <div className="mt-8 max-w-6xl mx-auto flex justify-between items-center">
+      {/* main categories */}
       <div className="flex space-between gap-x-3">
         {categories.map((category) => {
-          // check that this category is active or not
+          // check that a category is active or not
           const active = isTagActive(category.name);
           return (
-            <button
-              // add new tag to filter out icons
-              onClick={() => addOrRemoveTagToFilterIcons(category.name)}
+            <TopCategoryBtn
               key={category.key}
-              className={`group flex flex-col items-center pt-6 pb-5 px-10 gap-y-2 border-b-4 hover:border-blue-500${
-                active ? " border-blue-500" : " border-transparent"
-              }`}
-            >
-              <FontAwesomeIcon
-                className={`text-3xl group-hover:text-blue-500${
-                  active ? " text-blue-500" : " text-blue-950"
-                }`}
-                icon={category.icon}
-              />
-              <span
-                className={`capitalize text-sm group-hover:text-blue-500${
-                  active ? " text-blue-500" : " text-gray-700"
-                }`}
-              >
-                {category.name}
-              </span>
-            </button>
+              category={category}
+              active={active}
+              addOrRemoveTagToFilterIcons={addOrRemoveTagToFilterIcons}
+            />
           );
         })}
       </div>
+      {/* grids and sorting */}
       <div className="flex space-between">
         {grids.map((grid) => (
           <button key={grid.key} className="group py-2 px-4">
@@ -85,9 +72,9 @@ const TopCategoriesAndSorting = ({
             />
           </button>
         ))}
-        {/* sorting */}
         <select
           value={sortOrder}
+          // set sortOrder state
           onChange={(e) => setSortOrder(e.target.value)}
           className="ml-2 px-8 py-3 bg-white border-double border-transparent outline outline-2 outline-gray-300 rounded-lg items-center"
           style={{ borderRightWidth: "18px" }}
@@ -96,7 +83,7 @@ const TopCategoriesAndSorting = ({
           <option value={1}>Alphabetical</option>
         </select>
         <select
-          value={0}
+          defaultValue={0}
           className="ml-3 px-8 py-3 bg-white border-double border-transparent outline outline-2 outline-gray-300 rounded-lg items-center"
           style={{ borderRightWidth: "18px" }}
         >

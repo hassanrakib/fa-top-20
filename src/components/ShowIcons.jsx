@@ -1,8 +1,9 @@
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import React from "react";
 import IconsNumberAndFilters from "./IconsNumberAndFilters";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 const ShowIcons = ({ tagsToFilterIcons, addOrRemoveTagToFilterIcons, sortOrder }) => {
+  
   // holds icons
   const [icons, setIcons] = React.useState([]);
   // know that the icons are loading or not
@@ -15,10 +16,9 @@ const ShowIcons = ({ tagsToFilterIcons, addOrRemoveTagToFilterIcons, sortOrder }
   React.useEffect(() => {
     // set isLoading state to true to show the spinner
     setIsLoading(true);
-    fetch(`http://localhost:5000/icons?sortOrder=${sortOrder}&tags=${tagsString}`)
+    fetch(`https://react-font-awesome-server.onrender.com/icons?sortOrder=${sortOrder}&tags=${tagsString}`)
       .then((res) => res.json())
       .then((icons) => {
-        console.log(icons);
         // set the icons state
         setIcons(icons);
 
@@ -40,6 +40,7 @@ const ShowIcons = ({ tagsToFilterIcons, addOrRemoveTagToFilterIcons, sortOrder }
 
   return (
     <div className="grow flex flex-col gap-y-7">
+      {/* show the number of icons, filters & reset button to remove filters */}
       <IconsNumberAndFilters
         totalIcons={icons.length}
         tagsToFilterIcons={tagsToFilterIcons}

@@ -45,11 +45,13 @@ const genreCategories = {
 const Sidebar = ({ isTagActive, addOrRemoveTagToFilterIcons }) => {
   return (
     <aside className="flex flex-col gap-y-5">
+      {/* style categories */}
       <SidebarCategories
         categories={styleCategories}
         isTagActive={isTagActive}
         addOrRemoveTagToFilterIcons={addOrRemoveTagToFilterIcons}
       />
+      {/* genre categories */}
       <SidebarCategories
         categories={genreCategories}
         isTagActive={isTagActive}

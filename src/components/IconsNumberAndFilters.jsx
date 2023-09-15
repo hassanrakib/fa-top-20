@@ -7,14 +7,17 @@ const IconsNumberAndFilters = ({
 }) => {
   return (
     <section className="flex items-center gap-x-3">
+      {/* show number of icons */}
       <h3 className="text-lg tracking-wide font-bold text-blue-950">
         {totalIcons} Icons
       </h3>
+      {/* if tags array has got at least a tag then show that & a reset button  */}
       {!!tags.length && (
         <ul className="flex items-center gap-x-3">
           {tags.map((tag) => (
             <li key={Math.random()}>
               <button
+                // add or remove a tag to filter out icons
                 onClick={() => addOrRemoveTagToFilterIcons(tag)}
                 className="group uppercase text-xs font-bold text-blue-950 flex gap-x-1 items-center py-2 px-4 bg-white border rounded-full"
               >

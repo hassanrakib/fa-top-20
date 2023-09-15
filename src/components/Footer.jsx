@@ -1,6 +1,7 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import FooterLinks from "./FooterLinks";
 
-const links = [
+const bottomLinks = [
   {
     key: 1,
     href: "#",
@@ -23,6 +24,85 @@ const links = [
   },
 ];
 
+const projectLinks = {
+  title: "Project",
+  list: [
+    {
+      key: 1,
+      href: "#",
+      text: "Download",
+    },
+    {
+      key: 2,
+      href: "#",
+      text: "Changelog",
+    },
+    {
+      key: 3,
+      href: "#",
+      text: "Commission Icons",
+    },
+    {
+      key: 4,
+      href: "#",
+      text: "All Versions",
+    },
+
+  ],
+};
+
+const communityLinks = {
+  title: "Community",
+  list: [
+    {
+      key: 1,
+      href: "#",
+      text: "Github",
+    },
+    {
+      key: 2,
+      href: "#",
+      text: "Icon Requests",
+    },
+    {
+      key: 3,
+      href: "#",
+      text: "Twitter",
+    },
+    {
+      key: 4,
+      href: "#",
+      text: "Blog Awesome",
+    },
+
+  ],
+};
+const helpLinks = {
+  title: "Help",
+  list: [
+    {
+      key: 1,
+      href: "#",
+      text: "Support",
+    },
+    {
+      key: 2,
+      href: "#",
+      text: "Troubleshooting",
+    },
+    {
+      key: 3,
+      href: "#",
+      text: "Contact Us",
+    },
+    {
+      key: 4,
+      href: "#",
+      text: "Status",
+    },
+
+  ],
+};
 const Footer = () => {
   return (
     <footer className="px-32 py-8 bg-blue-950 text-white">
@@ -47,62 +127,15 @@ const Footer = () => {
           </p>
         </div>
         <div className="flex gap-x-12 p-3">
-          <div>
-            <h3 className="text-gray-500 font-medium mb-3">Project</h3>
-            <ul className="flex flex-col gap-y-2">
-              <li>
-                <a href="#">Download</a>
-              </li>
-              <li>
-                <a href="#">Changelog</a>
-              </li>
-              <li>
-                <a href="#">Commission Icons</a>
-              </li>
-              <li>
-                <a href="#">All Versions</a>
-              </li>
-            </ul>
-          </div>
-          <div>
-            <h3 className="text-gray-500 font-medium mb-3">Community</h3>
-            <ul className="flex flex-col gap-y-2">
-              <li>
-                <a href="#">Github</a>
-              </li>
-              <li>
-                <a href="#">Icon Requests</a>
-              </li>
-              <li>
-                <a href="#">Twitter</a>
-              </li>
-              <li>
-                <a href="#">Blog Awesome</a>
-              </li>
-            </ul>
-          </div>
-          <div>
-            <h3 className="text-gray-500 font-medium mb-3">Help</h3>
-            <ul className="flex flex-col gap-y-2">
-              <li>
-                <a href="#">Support</a>
-              </li>
-              <li>
-                <a href="#">Troubleshooting</a>
-              </li>
-              <li>
-                <a href="#">Contact Us</a>
-              </li>
-              <li>
-                <a href="#">Status</a>
-              </li>
-            </ul>
-          </div>
+          <FooterLinks links={projectLinks} />
+          <FooterLinks links={communityLinks} />
+          <FooterLinks links={helpLinks} />
         </div>
       </div>
+      {/* footer bottom links */}
       <div className="mt-8 text-sm flex items-center">
         <ul className="flex gap-x-4">
-          {links.map((link) => (
+          {bottomLinks.map((link) => (
             <li key={link.key}>
               <a href={link.href}>{link.text}</a>
             </li>

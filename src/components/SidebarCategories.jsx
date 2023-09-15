@@ -12,10 +12,12 @@ const SidebarCategories = ({
       </h3>
       <ul className="mt-2 flex flex-col gap-y-1">
         {list.map((category) => {
+          // know that a category is active or not
           const active = isTagActive(category.name);
           return (
             <li key={category.key} className="w-64">
               <button
+                // add or remove a category to filter out icons
                 onClick={() => addOrRemoveTagToFilterIcons(category.name)}
                 className={`${
                   active ? "bg-blue-600 text-white " : ""

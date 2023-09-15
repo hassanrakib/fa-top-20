@@ -1,14 +1,15 @@
+import React from "react";
+import Navbar from "./components/Navbar";
+import Search from "./components/Search";
+import TopCategoriesAndSorting from "./components/TopCategoriesAndSorting";
+import ShowIcons from "./components/ShowIcons";
+import Footer from "./components/Footer";
+import Sidebar from "./components/Sidebar";
 import { library } from "@fortawesome/fontawesome-svg-core";
 import { fas } from "@fortawesome/free-solid-svg-icons";
 import { far } from "@fortawesome/free-regular-svg-icons";
 import { fab } from "@fortawesome/free-brands-svg-icons";
-import Navbar from "./components/Navbar";
-import Search from "./components/Search";
-import TopCategoriesAndSorting from "./components/TopCategoriesAndSorting";
-import React from "react";
-import ShowIcons from "./components/ShowIcons";
-import Footer from "./components/Footer";
-import Sidebar from "./components/Sidebar";
+
 
 // makes any of the icons in the font awesome packages to be referenced
 // by icon name as a string in any component of the app
@@ -19,11 +20,12 @@ const App = () => {
   const [tagsToFilterIcons, setTagsToFilterIcons] = React.useState([]);
 
   // sort order to sort icons alphabetically
-  // sortOrder = 0 for no sorting, 1 for alphabetical
+  // sortOrder = 0 for no sorting, 1 for alphabetical sorting
   const [sortOrder, setSortOrder] = React.useState(0);
 
   // add new tag to the tagsToFilterIcons state
-  // or remove the existing tag from the tagsToFilterIcons state
+  // remove existing tag from the tagsToFilterIcons state
+  // make tagsToFilterIcons state empty
   const addOrRemoveTagToFilterIcons = (newTag, reset) => {
     // if reset true, remove all the tags
     if (reset) return setTagsToFilterIcons([]);
@@ -68,7 +70,6 @@ const App = () => {
         />
       </header>
       <main className="px-28 py-7 bg-gray-100 flex gap-x-8">
-        {/* sidebar */}
         <Sidebar
           isTagActive={isTagActive}
           addOrRemoveTagToFilterIcons={addOrRemoveTagToFilterIcons}
